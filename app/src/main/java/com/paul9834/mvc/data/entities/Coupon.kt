@@ -10,16 +10,16 @@ import java.util.*
 
 class Coupon(couponJson: JsonObject?) : Serializable {
 
-    lateinit var id: String
-    lateinit var image_url: String
-    lateinit var title: String
-    lateinit var descriptionShort: String
-    lateinit var category: String
-    lateinit var description:String
-    lateinit var offer: String
-    lateinit var website: String
-    lateinit var endDate: String
-    lateinit var url: String
+    var id: String?=null
+    var image_url:String?=null
+    var title: String?=null
+    var descriptionShort:String?=null
+    var category:String?=null
+    var description:String?=null
+    var offer: String?=null
+    var website: String?=null
+    var endDate: String?=null
+    var url: String?=null
 
     init {
         try {

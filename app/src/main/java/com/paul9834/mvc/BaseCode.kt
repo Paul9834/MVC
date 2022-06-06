@@ -4,6 +4,9 @@ package com.paul9834.mvc
 *
 *
 * MainActivity.kt
+*
+*
+*
 val rvCoupons: RecyclerView = findViewById(R.id.rvCoupons)
 rvCoupons.layoutManager = LinearLayoutManager(this)
 val coupons = ArrayList<Coupon>()

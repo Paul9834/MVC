@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.paul9834.mvc.R
 import com.paul9834.mvc.data.entities.Coupon
-import com.paul9834.mvc.ui.activities.CouponDetailActivity
+import com.paul9834.mvc.ui.activities.coupon_detail.CouponDetailActivity
 import com.squareup.picasso.Picasso
 
 class RecyclerCouponsAdapter(var coupons : ArrayList<Coupon>, var resource: Int) : RecyclerView.Adapter<RecyclerCouponsAdapter.CardCouponHolder>() {
@@ -44,7 +44,9 @@ class RecyclerCouponsAdapter(var coupons : ArrayList<Coupon>, var resource: Int)
 
         fun setDataCard(coupon: Coupon){
             this.coupon = coupon
-            Picasso.get().load(coupon.image_url).resize(520, 520).centerCrop().into(imgCoupon)
+            if( coupon.image_url!="" )
+                Picasso.get().load(coupon.image_url).resize(520, 520).centerCrop().into(imgCoupon)
+
             tvTitle.setText(coupon.title)
             tvDescriptionShort.setText(coupon.descriptionShort)
             tvCategory.setText(coupon.category)
@@ -53,7 +55,7 @@ class RecyclerCouponsAdapter(var coupons : ArrayList<Coupon>, var resource: Int)
         }
 
         override fun onClick(v: View) {
-            Log.i("CLICK Coupon: ", coupon!!.title)
+            Log.i("CLICK Coupon: ", coupon?.title!!)
             val context = v.context
             val showPhotoIntent = Intent(context, CouponDetailActivity::class.java)
             showPhotoIntent.putExtra("COUPON", coupon)
